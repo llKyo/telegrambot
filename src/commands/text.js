@@ -1,8 +1,8 @@
 const log = require('../log/log');
 
-const start = ctx => {
+const text = ctx => {
     log(ctx);
     ctx.reply('🤔');
 };
 
-module.exports = start;
+module.exports = text;

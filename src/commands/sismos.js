@@ -1,13 +1,13 @@
-const { request } = require('../utils/axios');
+const axios = require('axios');
 const log = require('../log/log');
 
 const sismos = (ctx, cantidad) => {
     log(ctx);
-    const requestSismos = request(process.env.API_SISMOS);
+    const requestSismos = axios.get(process.env.API_SISMOS);
     ctx.reply(`Últimos ${ cantidad } sismos`);
     requestSismos.then( response => {
         const ultimosSismos = response.data;
-
+        console.log(ultimosSismos);
         cantidad = cantidad <= ultimosSismos.length? cantidad:ultimosSismos.length;
 
         for (let i = 0; i < cantidad; i++) {
@@ -21,6 +21,5 @@ const sismos = (ctx, cantidad) => {
         console.log( e );
     });
 };
-
 
 module.exports = sismos;
