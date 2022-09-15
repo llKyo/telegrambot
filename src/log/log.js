@@ -6,7 +6,7 @@ const log = ctx => {
     const name      = ctx.message.from.first_name;
     const username  = ctx.message.from.username;
     const text      = ctx.message.text;
-    const log = `[LOG ${now}] ${id} ${name} @${username}\nMensaje: ${text}`
+    const log = `[LOG ${now}] ${id} ${name} @${username} => ${text}`
     console.log( log );
     if ( process.env.USER_MASTER != id ) {
         ctx.telegram.sendMessage(process.env.USER_MASTER, log);
